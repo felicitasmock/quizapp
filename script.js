@@ -67,7 +67,15 @@ function endScreen() {
     document.getElementById('quizCard').style = 'display: none;'; // add CSS class d-none
     document.getElementById('endMaxQuestions').innerHTML = questions.length; // fills and shows the number of all questions
     document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+
+    if (rightQuestions < questions.length) {
+        document.getElementById('resultText').innerHTML = 'Das war schon ganz gut. Das kannst du aber noch besser.';
+    } else {
+        document.getElementById('resultText').innerHTML = 'Weltklasse! Du scheinst Allwissend zu sein!';
+        console.log('richtige Antworten', rightQuestions);
+    }
 }
+
 // progess bar
 function progressBar() {
     let percent = (currentQuestion + 1) / questions.length; //calc of progress // +1 because the varibale start with 0, but we start with 1
@@ -94,30 +102,30 @@ function updateToNextQuestions() {
 function answer(selection) { //variable selection
     // selection is e.g. 'answer_1' see onklick in index.html = id
     // defines variable of current question
-    console.log('selected answer is', selection);
+    //console.log('selected answer is', selection);
     let selectedQuestionNumber = selection.slice(-1);// defines variable of last char of selection
     // selection is e.g. 'answer_1' see onklick in index.html = id
     let question = questions[currentQuestion]; // must be defined here
-    console.log('selectedQuestionNumber is', selectedQuestionNumber);
-    console.log('right answer is', question['right_answer']);
+    // console.log('selectedQuestionNumber is', selectedQuestionNumber);
+    //console.log('right answer is', question['right_answer']);
 
     let idOfRightAnswer = `answer_${question['right_answer']}`; // defines variable of right answer with variable of last char of element in array
 
     if (rightAnswerSelected(selectedQuestionNumber)) { //selectedQuestionNumber must be in here, because else varibale is unknown for thi function - is defined in function rightAnswerSelected
-        console.log('right answer'); // than log right answer
+        //  console.log('right answer'); // than log right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // parentNote gets element above
         audioSuccess.play(); // playes sound for right answer
         rightQuestions++; // count up rightQuestions
     } else {
-        console.log('wrong answer'); // else log wrong answer
+        //  console.log('wrong answer'); // else log wrong answer
         audioFail.play(); // plays sound for wrong answer
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
 
     }
     //    document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
-    console.log('currentQuestion is', currentQuestion);
+    //console.log('currentQuestion is', currentQuestion);
     changeButton();
 }
 function rightAnswerSelected(selectedQuestionNumber) {
@@ -130,12 +138,11 @@ function nextQuestion() {
 
     document.getElementById('next-button').disabled = true; // disables Button
     resetAnswers(); // calls function that removes css classes
-
 }
 
 function changeButton() {
-    if ((currentQuestion + 1) === questions.length) { // + 1 because array starts with 0
-       
+    if ((currentQuestion) === questions.length) { // + 1 because array starts with 0
+
         document.getElementById('next-button').innerHTML = 'Ergebnis anzeigen';
         document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
     } else {

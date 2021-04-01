@@ -63,9 +63,9 @@
     .quiz-card {
         height: 100vh;
     }
-    .end-card {
-        padding-top: 120px;
-    }
+    /* .end-card {
+        padding-top: 100px;
+    } */
     .start-card {
         padding-top: 180px;
     }

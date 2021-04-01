@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,59 @@
     <script src="script.js"></script>
 
 </head>
-<body>
- 
+
+<body onload="init()">
+    Quizapp
+
+    <div class="bg-container">
+
+        <div class="quiz-card card" id="quizCard">
+            <img src="img/question-mark.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title" id="questionText">Bist du bereit?</h5>
+
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
+                    <div class="card-body" id="answer_2">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
+                    <div class="card-body" id="answer_3">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
+                    <div class="card-body" id="answer_4">
+                        Antwort
+                    </div>
+                </div>
+
+
+                <div class="question-footer">
+                    <span><b id="currentNumber">1</b>&nbsp;von&nbsp;<b id="maxQuestions">5</b>&nbsp;Fragen</span>
+                    <button class="btn btn-primary" disabled id="next-button" onclick="nextQuestion()">Nächste
+                        Frage</button>
+                </div>
+
+            </div>
+
+            <div class="quiz-card card d-none" id="endCard">
+                <img src="..." class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

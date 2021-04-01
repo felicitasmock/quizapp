@@ -43,34 +43,46 @@ function init() {
 
 // fills question with their answers
 function showQuestion() {
-    if (currentQuestion >= questions.length) { // if current questions >= length of array
-        // endscreen!!!
-        // document.getElementById('quizCard').classList.add('d-none'); // add CSS class d-none
-        // document.getElementById('endCard').classList.remove('d-none'); // remove CSS class d-cone to show end screen
-        document.getElementById('endCard').style = ''; // remove CSS class d-cone to show end screen
-        document.getElementById('quizCard').style = 'display: none;'; // add CSS class d-none
-        document.getElementById('endMaxQuestions').innerHTML = questions.length; // fills and shows the number of all questions
-        document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
-
+    if (gameIsOver()) {
+        endScreen();
     } else { // show question
-
-        // progess bar
-        let percent = (currentQuestion + 1) / questions.length; //calc of progress // +1 because the varibale start with 0, but we start with 1
-        percent = Math.round(percent * 100); // sets percent e.g. from 0.5 to 50% and rounds number
-        console.log('Fortschritt', percent);
-        document.getElementById('progressBar').innerHTML = `${percent}%`; //shows percent on progess bar
-        document.getElementById('progressBar').style.width = `${percent}%`; // changes width of element with same amount as percent
-
-        let question = questions[currentQuestion]; // get current Questions out of array
-
-        document.getElementById('currentNumber').innerHTML = currentQuestion + 1; // +1 to start with 1 and not 0
-
-        document.getElementById('questionText').innerHTML = question['question']; // fills question
-        document.getElementById('answer_1').innerHTML = question['answer_1']; // fills answer ..
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
+        progressBar();
+        updateToNextQuestions();
     }
+}
+
+function gameIsOver(){
+    return currentQuestion >= questions.length;  // if current questions >= length of array
+}
+
+// endscreen
+function endScreen() {
+    // document.getElementById('quizCard').classList.add('d-none'); // add CSS class d-none
+    // document.getElementById('endCard').classList.remove('d-none'); // remove CSS class d-cone to show end screen
+    document.getElementById('endCard').style = ''; // remove CSS class d-cone to show end screen
+    document.getElementById('quizCard').style = 'display: none;'; // add CSS class d-none
+    document.getElementById('endMaxQuestions').innerHTML = questions.length; // fills and shows the number of all questions
+    document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+}
+// progess bar
+function progressBar() {
+    let percent = (currentQuestion + 1) / questions.length; //calc of progress // +1 because the varibale start with 0, but we start with 1
+    percent = Math.round(percent * 100); // sets percent e.g. from 0.5 to 50% and rounds number
+    console.log('Fortschritt', percent);
+    document.getElementById('progressBar').innerHTML = `${percent}%`; //shows percent on progess bar
+    document.getElementById('progressBar').style.width = `${percent}%`; // changes width of element with same amount as percent
+}
+
+function updateToNextQuestions() {
+    let question = questions[currentQuestion]; // get current Questions out of array
+
+    document.getElementById('currentNumber').innerHTML = currentQuestion + 1; // +1 to start with 1 and not 0
+
+    document.getElementById('questionText').innerHTML = question['question']; // fills question
+    document.getElementById('answer_1').innerHTML = question['answer_1']; // fills answer ..
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
 
 // onklick on answer

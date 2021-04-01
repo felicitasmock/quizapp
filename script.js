@@ -68,10 +68,13 @@ function endScreen() {
     document.getElementById('endMaxQuestions').innerHTML = questions.length; // fills and shows the number of all questions
     document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
 
-    if (rightQuestions < questions.length) {
-        document.getElementById('resultText').innerHTML = 'Das war schon ganz gut. Das kannst du aber noch besser.';
-    } else {
+    // check sum of right answers
+    if (rightQuestions == questions.length) {
         document.getElementById('resultText').innerHTML = 'Weltklasse! Du scheinst Allwissend zu sein!';
+    } else if (rightQuestions == 0) {
+        document.getElementById('resultText').innerHTML = 'Das war ja wohl gar nichts! Probiere es noch ein mal'; 
+    } else {
+        document.getElementById('resultText').innerHTML = 'Das war schon ganz gut. Das kannst du aber noch besser.';
         console.log('richtige Antworten', rightQuestions);
     }
 }

@@ -18,9 +18,11 @@
     width: 30rem;
     max-height: 100%;
 }
-.center-text{
+
+.center-text {
     text-align: center;
 }
+
 .progress {
     min-height: 20px;
 }
@@ -51,12 +53,13 @@
 }
 
 @media(max-width: 650px) {
- .quiz-card{
-     height: 100vh;
-   
- }
- .end-card{
-    padding-top: 120px;
-     
- }
+    .quiz-card {
+        height: 100vh;
+    }
+    .end-card {
+        padding-top: 120px;
+    }
+    .start-card {
+        padding-top: 180px;
+    }
 }

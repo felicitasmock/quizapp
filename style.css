@@ -36,8 +36,20 @@
     object-fit: cover;
 }
 
-.end-screen {
+.start-end-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+}
+
+@media(max-width: 650px) {
+ .quiz-card{
+     height: 100vh;
+   
+ }
+ .end-card{
+    padding-top: 120px;
+     
+ }
 }

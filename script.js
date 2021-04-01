@@ -37,7 +37,10 @@ let audioFail = new Audio('audio/wrong.mp3') // sound for wrong answer
 
 
 // onload function
-function init() {
+function startQuiz() {
+    document.getElementById('startCard').style = "display: none;";
+    document.getElementById('quizCard').style = "";
+
     document.getElementById('maxQuestions').innerHTML = questions.length; // fill and shows the number of all questions
     showQuestion();
 }
@@ -158,6 +161,6 @@ function playAgain() {
     currentQuestion = 0; // sets current questin back to the first
     rightQuestions = 0; // sets variable of rightQuestions back to 0
     document.getElementById('next-button').innerHTML = 'Nächste Frage'; // change button text back to origin
-    init(); // calc function init to fill questions
+    startQuiz(); // call function init to fill questions
 }
 

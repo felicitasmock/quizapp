@@ -84,28 +84,29 @@ function updateToNextQuestions() {
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
+let question = questions[currentQuestion]; 
 
 // onklick on answer
 function answer(selection) {
     // selection is e.g. 'answer_1' see onklick in index.html = id
-    let question = questions[currentQuestion]; // defines variable of current question
-    console.log('selected answer is', selection);
+    // defines variable of current question
+    //console.log('selected answer is', selection);
     let selectedQuestionNumber = selection.slice(-1);// defines variable of last char of selection
     // selection is e.g. 'answer_1' see onklick in index.html = id
 
-    console.log('selectedQuestionNumber is', selectedQuestionNumber);
-    console.log('current question is', question['right_answer']);
+   // console.log('selectedQuestionNumber is', selectedQuestionNumber);
+    //console.log('current question is', question['right_answer']);
 
     let idOfRightAnswer = `answer_${question['right_answer']}`; // defines variable of right answer with variable of last char of element in array
 
-    if (selectedQuestionNumber == question['right_answer']) { // if the selected question (number) is same a number in right answer of array
-        console.log('right answer'); // than log right answer
+    if (rightAnswerSelected(selectedQuestionNumber)) { //selectedQuestionNumber must be in here, because else varibale is unknown for thi function - is defined in function rightAnswerSelected
+       // console.log('right answer'); // than log right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // parentNote gets element above
         audioSuccess.play(); // playes sound for right answer
         rightQuestions++; // count up rightQuestions
     } else {
-        console.log('wrong answer'); // else log wrong answer
+        //console.log('wrong answer'); // else log wrong answer
         audioFail.play(); // plays sound for wrong answer
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
@@ -113,7 +114,9 @@ function answer(selection) {
     }
     document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
 }
-
+function rightAnswerSelected(selectedQuestionNumber){
+    return selectedQuestionNumber == question['right_answer'];  // if the selected question (number) is same a number in right answer of array
+}
 function nextQuestion() {
     currentQuestion++ // counts up variable of current question 
     showQuestion(); // runs function of showQuestion

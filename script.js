@@ -31,18 +31,25 @@ let questions = [
 ];
 
 let currentQuestion = 0; // defines variable for current question of array
+let rightQuestions = 0; // defines variable of right questions
 
 // onload function
 function init() {
-    document.getElementById('maxQuestions').innerHTML = questions.length;
+    document.getElementById('maxQuestions').innerHTML = questions.length; // fill and shows the number of all questions
     showQuestion();
 }
 
 // fills question with their answers
 function showQuestion() {
     if (currentQuestion >= questions.length) { // if current questions >= length of array
-        document.getElementById('quizCard').classList.add('d-none'); // add CSS class d-none
-        document.getElementById('endCard').classList.remove('d-none'); // remove CSS class d-cone to show end screen
+        // endscreen!!!
+        // document.getElementById('quizCard').classList.add('d-none'); // add CSS class d-none
+        // document.getElementById('endCard').classList.remove('d-none'); // remove CSS class d-cone to show end screen
+        document.getElementById('endCard').style = ''; // remove CSS class d-cone to show end screen
+        document.getElementById('quizCard').style = 'display: none;'; // add CSS class d-none
+        document.getElementById('endMaxQuestions').innerHTML = questions.length; // fills and shows the number of all questions
+        document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+
     } else {
 
 
@@ -50,8 +57,8 @@ function showQuestion() {
 
         document.getElementById('currentNumber').innerHTML = currentQuestion + 1; // +1 to start with 1 and not 0
 
-        document.getElementById('questionText').innerHTML = question['question'];
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('questionText').innerHTML = question['question']; // fills question
+        document.getElementById('answer_1').innerHTML = question['answer_1']; // fills answer ..
         document.getElementById('answer_2').innerHTML = question['answer_2'];
         document.getElementById('answer_3').innerHTML = question['answer_3'];
         document.getElementById('answer_4').innerHTML = question['answer_4'];
@@ -80,6 +87,7 @@ function answer(selection) {
         console.log('right answer'); // than log right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // parentNote gets element above
+        rightQuestions++; // count up rightQuestions
     } else {
         console.log('wrong answer'); // else log wrong answer
         document.getElementById(selection).parentNode.classList.add('bg-danger');
@@ -108,3 +116,13 @@ function resetAnswers() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }
+
+// start quiz again
+function playAgain() {
+    document.getElementById('endCard').style = 'display: none;'; // add CSS class d-cone to show end screen
+    document.getElementById('quizCard').style = ''; // removes CSS class d-none
+    currentQuestion = 0; // sets current questin back to the first
+    rightQuestions = 0; // sets variable of rightQuestions back to 0
+    showQuestion(); // fills questions
+}
+

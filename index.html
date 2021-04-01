@@ -52,12 +52,13 @@
 
             </div>
         </div>
-        <div class="quiz-card card d-none" id="endCard">
-            <img src="img/konfetti.jpg" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Ende</h5>
-                <p class="card-text">Das war schon ganz nett. Das kannst du aber noch besser.</p>
-                <a href="#" class="btn btn-primary">Noch mal spielen</a>
+        <div class="quiz-card card" id="endCard" style="display: none;">
+            <img class="end-card-img" src="img/trophy.png" class="card-img-top">
+            <div class="card-body end-screen">
+                <h5 class="card-title">Quiz beendet</h5>
+                <p>Du hast <b><span id="amountOfRightQuestions">X</span></b>&nbsp;Fragen von <b><span id="endMaxQuestions"></span></b>&nbsp;Fragen richtig beantwortet!</p>
+                <p class="card-text">Das war schon ganz gut. Das kannst du aber noch besser.</p>
+                <a href="#" class="btn btn-primary" onClick="playAgain()">Noch mal spielen</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,31 @@
+[
+{
+    "question": "Was ist das größte Tier der Welt?",
+        "answer_1": "Elefant",
+            "answer_2": "Giraffe",
+                "answer_3": "Blauwal",
+                    "answer_4": "Braunbär",
+                        "right_answer": 3
+    }, {
+    "question": "Einige Monate haben 30, einige 31 Tage. Wie viele haben 28 Tage?",
+        "answer_1": "Kein Monat",
+            "answer_2": "Alle Monate",
+                "answer_3": "1 Monat",
+                    "answer_4": "3 Monate",
+                        "right_answer": 2
+    }, {
+    "question": "Welches Land ist flächenmäßig das zweitgrößte der Erde??",
+        "answer_1": "Kanada",
+            "answer_2": "Brasilien",
+                "answer_3": "China",
+                    "answer_4": "USA",
+                        "right_answer": 1
+    }, {
+    "question": "Teneriffa, Gran Canaria und Fuerteventura gehören zu den…?",
+        "answer_1": "Azoren",
+            "answer_2": "Balearen",
+                "answer_3": "Karibische Inseln",
+                    "answer_4": "Kanarische Inseln",
+                        "right_answer": 4
+    }
+]

@@ -35,6 +35,7 @@ let rightQuestions = 0; // defines variable of right questions
 let audioSuccess = new Audio('audio/success.mp3'); // sound for right answer
 let audioFail = new Audio('audio/wrong.mp3') // sound for wrong answer
 
+
 // onload function
 function init() {
     document.getElementById('maxQuestions').innerHTML = questions.length; // fill and shows the number of all questions
@@ -51,8 +52,8 @@ function showQuestion() {
     }
 }
 
-function gameIsOver(){
-    return currentQuestion >= questions.length;  // if current questions >= length of array
+function gameIsOver() {
+    return currentQuestion >= questions.length;  // if current questions >= length of array = last question
 }
 
 // endscreen
@@ -100,7 +101,7 @@ function answer(selection) { //variable selection
     let idOfRightAnswer = `answer_${question['right_answer']}`; // defines variable of right answer with variable of last char of element in array
 
     if (rightAnswerSelected(selectedQuestionNumber)) { //selectedQuestionNumber must be in here, because else varibale is unknown for thi function - is defined in function rightAnswerSelected
-       console.log('right answer'); // than log right answer
+        console.log('right answer'); // than log right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // parentNote gets element above
         audioSuccess.play(); // playes sound for right answer
@@ -112,9 +113,11 @@ function answer(selection) { //variable selection
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
 
     }
-    document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
+    //    document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
+    console.log('currentQuestion is', currentQuestion);
+    changeButton();
 }
-function rightAnswerSelected(selectedQuestionNumber){
+function rightAnswerSelected(selectedQuestionNumber) {
     let question = questions[currentQuestion]; // must also be defined here!!
     return selectedQuestionNumber == question['right_answer'];  // if the selected question (number) is same a number in right answer of array
 }
@@ -127,6 +130,15 @@ function nextQuestion() {
 
 }
 
+function changeButton() {
+    if ((currentQuestion + 1) === questions.length) { // + 1 because array starts with 0
+       
+        document.getElementById('next-button').innerHTML = 'Ergebnis anzeigen';
+        document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
+    } else {
+        document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
+    }
+}
 // function to remove set CSS classes
 function resetAnswers() {
     document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
@@ -145,6 +157,7 @@ function playAgain() {
     document.getElementById('quizCard').style = ''; // removes CSS class d-none
     currentQuestion = 0; // sets current questin back to the first
     rightQuestions = 0; // sets variable of rightQuestions back to 0
+    document.getElementById('next-button').innerHTML = 'Nächste Frage'; // change button text back to origin
     init(); // calc function init to fill questions
 }
 

@@ -19,6 +19,11 @@
 
         <div class="quiz-card card" id="quizCard">
             <img src="img/question-mark.jpg" class="card-img-top">
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0;">
+            0</div>
+            </div>
+
             <div class="card-body">
                 <h5 class="card-title" id="questionText">Bist du bereit?</h5>
 
@@ -56,7 +61,8 @@
             <img class="end-card-img" src="img/trophy.png" class="card-img-top">
             <div class="card-body end-screen">
                 <h5 class="card-title">Quiz beendet</h5>
-                <p>Du hast <b><span id="amountOfRightQuestions">X</span></b>&nbsp;Fragen von <b><span id="endMaxQuestions"></span></b>&nbsp;Fragen richtig beantwortet!</p>
+                <p>Du hast <b><span id="amountOfRightQuestions">X</span></b>&nbsp;Fragen von <b><span
+                            id="endMaxQuestions"></span></b>&nbsp;Fragen richtig beantwortet!</p>
                 <p class="card-text">Das war schon ganz gut. Das kannst du aber noch besser.</p>
                 <a href="#" class="btn btn-primary" onClick="playAgain()">Noch mal spielen</a>
             </div>

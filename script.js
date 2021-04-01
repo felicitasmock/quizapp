@@ -7,9 +7,9 @@ let questions = [
         'answer_4': 'Helge Schneider',
         'right_answer': 3,
     }, {
-        'question': 'Warum ist die Banane krumm?',
+        'question': 'Einige Monate haben 30, einige 31 Tage. Wie viele haben 28 Tage?',
         'answer_1': 'bla bla 1',
-        'answer_2': 'bla bla 2',
+        'answer_2': 'Alle – jeder Monat hat <b>mindestens</b> 28 Tage.',
         'answer_3': 'Weil niemand in den Urwald flog und die Banane gerade bog',
         'answer_4': 'bla bla 3',
         'right_answer': 3,
@@ -32,6 +32,8 @@ let questions = [
 
 let currentQuestion = 0; // defines variable for current question of array
 let rightQuestions = 0; // defines variable of right questions
+let audioSuccess = new Audio('audio/success.mp3'); // sound for right answer
+let audioFail = new Audio('audio/wrong.mp3') // sound for wrong answer
 
 // onload function
 function init() {
@@ -50,8 +52,14 @@ function showQuestion() {
         document.getElementById('endMaxQuestions').innerHTML = questions.length; // fills and shows the number of all questions
         document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
 
-    } else {
+    } else { // show question
 
+        // progess bar
+        let percent = (currentQuestion + 1) / questions.length; //calc of progress // +1 because the varibale start with 0, but we start with 1
+        percent = Math.round(percent * 100); // sets percent e.g. from 0.5 to 50% and rounds number
+        console.log('Fortschritt', percent);
+        document.getElementById('progressBar').innerHTML = `${percent}%`; //shows percent on progess bar
+        document.getElementById('progressBar').style.width = `${percent}%`; // changes width of element with same amount as percent
 
         let question = questions[currentQuestion]; // get current Questions out of array
 
@@ -78,20 +86,18 @@ function answer(selection) {
 
     let idOfRightAnswer = `answer_${question['right_answer']}`; // defines variable of right answer with variable of last char of element in array
 
-    document.getElementById(selection).parentNode.classList.remove('bg-success');
-    document.getElementById(selection).parentNode.classList.remove('bg-danger');
-    document.getElementById(idOfRightAnswer).parentNode.classList.remove('bg-success');
-
-
     if (selectedQuestionNumber == question['right_answer']) { // if the selected question (number) is same a number in right answer of array
         console.log('right answer'); // than log right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // parentNote gets element above
+        audioSuccess.play(); // playes sound for right answer
         rightQuestions++; // count up rightQuestions
     } else {
         console.log('wrong answer'); // else log wrong answer
+        audioFail.play(); // plays sound for wrong answer
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+
     }
     document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
 }
@@ -104,6 +110,8 @@ function nextQuestion() {
     resetAnswers(); // calls function that removes css classes
 
 }
+
+
 
 // function to remove set CSS classes
 function resetAnswers() {
@@ -123,6 +131,6 @@ function playAgain() {
     document.getElementById('quizCard').style = ''; // removes CSS class d-none
     currentQuestion = 0; // sets current questin back to the first
     rightQuestions = 0; // sets variable of rightQuestions back to 0
-    showQuestion(); // fills questions
+    init(); // calsl function init to fill questions
 }
 

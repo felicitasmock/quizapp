@@ -41,8 +41,8 @@ function init() {
 // fills question with their answers
 function showQuestion() {
     if (currentQuestion >= questions.length) { // if current questions >= length of array
-        document.getElementById('quizCard').classList.add('d-none');
-        document.getElementById('endCard').classList.remove('d-none');
+        document.getElementById('quizCard').classList.add('d-none'); // add CSS class d-none
+        document.getElementById('endCard').classList.remove('d-none'); // remove CSS class d-cone to show end screen
     } else {
 
 
@@ -92,11 +92,12 @@ function nextQuestion() {
     currentQuestion++ // counts up variable of current question 
     showQuestion(); // runs function of showQuestion
 
-    document.getElementById('next-button').disabled = true; // Button disabled
-    resetAnswers(); // calls function that rewmoves css classes
+    document.getElementById('next-button').disabled = true; // disables Button
+    resetAnswers(); // calls function that removes css classes
 
 }
 
+// function to remove set CSS classes
 function resetAnswers() {
     document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_1').parentNode.classList.remove('bg-success');

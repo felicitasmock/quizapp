@@ -8,25 +8,25 @@ let questions = [
         'right_answer': 3,
     }, {
         'question': 'Einige Monate haben 30, einige 31 Tage. Wie viele haben 28 Tage?',
-        'answer_1': 'bla bla 1',
-        'answer_2': 'Alle – jeder Monat hat <b>mindestens</b> 28 Tage.',
-        'answer_3': 'Weil niemand in den Urwald flog und die Banane gerade bog',
-        'answer_4': 'bla bla 3',
-        'right_answer': 3,
+        'answer_1': 'Kein Monat',
+        'answer_2': 'Alle Monate',
+        'answer_3': '1 Monat',
+        'answer_4': '3 Monate',
+        'right_answer': 2,
     }, {
-        'question': 'Frage 3?',
-        'answer_1': 'Anwort 1',
-        'answer_2': 'Anwort 2',
-        'answer_3': 'Anwort 3',
-        'answer_4': 'Anwort 4',
-        'right_answer': 3,
+        'question': 'Welches Land ist flächenmäßig das zweitgrößte der Erde??',
+        'answer_1': 'Kanada',
+        'answer_2': 'Brasilien',
+        'answer_3': 'China',
+        'answer_4': 'USA',
+        'right_answer': 1,
     }, {
-        'question': 'Noch ne Frage?',
-        'answer_1': 'Noch ne Anwort 1',
-        'answer_2': 'Noch ne Anwort 2',
-        'answer_3': 'Noch ne Anwort 3',
-        'answer_4': 'Noch ne Anwort 4',
-        'right_answer': 3,
+        'question': 'Teneriffa, Gran Canaria und Fuerteventura gehören zu den…?',
+        'answer_1': 'Azoren',
+        'answer_2': 'Balearen',
+        'answer_3': 'Karibische Inseln',
+        'answer_4': 'Kanarische Inseln',
+        'right_answer': 4,
     }
 ];
 
@@ -68,11 +68,11 @@ function endScreen() {
 function progressBar() {
     let percent = (currentQuestion + 1) / questions.length; //calc of progress // +1 because the varibale start with 0, but we start with 1
     percent = Math.round(percent * 100); // sets percent e.g. from 0.5 to 50% and rounds number
-    console.log('Fortschritt', percent);
+    //console.log('Fortschritt', percent);
     document.getElementById('progressBar').innerHTML = `${percent}%`; //shows percent on progess bar
     document.getElementById('progressBar').style.width = `${percent}%`; // changes width of element with same amount as percent
 }
-
+// show question
 function updateToNextQuestions() {
     let question = questions[currentQuestion]; // get current Questions out of array
 
@@ -84,29 +84,29 @@ function updateToNextQuestions() {
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
-let question = questions[currentQuestion]; 
+
 
 // onklick on answer
-function answer(selection) {
+function answer(selection) { //variable selection
     // selection is e.g. 'answer_1' see onklick in index.html = id
     // defines variable of current question
-    //console.log('selected answer is', selection);
+    console.log('selected answer is', selection);
     let selectedQuestionNumber = selection.slice(-1);// defines variable of last char of selection
     // selection is e.g. 'answer_1' see onklick in index.html = id
-
-   // console.log('selectedQuestionNumber is', selectedQuestionNumber);
-    //console.log('current question is', question['right_answer']);
+    let question = questions[currentQuestion]; 
+    console.log('selectedQuestionNumber is', selectedQuestionNumber);
+    console.log('right answer is', question['right_answer']);
 
     let idOfRightAnswer = `answer_${question['right_answer']}`; // defines variable of right answer with variable of last char of element in array
 
     if (rightAnswerSelected(selectedQuestionNumber)) { //selectedQuestionNumber must be in here, because else varibale is unknown for thi function - is defined in function rightAnswerSelected
-       // console.log('right answer'); // than log right answer
+       console.log('right answer'); // than log right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // parentNote gets element above
         audioSuccess.play(); // playes sound for right answer
         rightQuestions++; // count up rightQuestions
     } else {
-        //console.log('wrong answer'); // else log wrong answer
+        console.log('wrong answer'); // else log wrong answer
         audioFail.play(); // plays sound for wrong answer
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
@@ -115,6 +115,7 @@ function answer(selection) {
     document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
 }
 function rightAnswerSelected(selectedQuestionNumber){
+    let question = questions[currentQuestion]; 
     return selectedQuestionNumber == question['right_answer'];  // if the selected question (number) is same a number in right answer of array
 }
 function nextQuestion() {
@@ -125,8 +126,6 @@ function nextQuestion() {
     resetAnswers(); // calls function that removes css classes
 
 }
-
-
 
 // function to remove set CSS classes
 function resetAnswers() {
@@ -146,6 +145,6 @@ function playAgain() {
     document.getElementById('quizCard').style = ''; // removes CSS class d-none
     currentQuestion = 0; // sets current questin back to the first
     rightQuestions = 0; // sets variable of rightQuestions back to 0
-    init(); // calsl function init to fill questions
+    init(); // calc function init to fill questions
 }
 

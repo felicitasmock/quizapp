@@ -1,10 +1,10 @@
 let questions = [
     {
-        'question': 'Wer hat HTML erfunden?',
-        'answer_1': 'Robbie Williams',
-        'answer_2': 'Lady Gaga',
-        'answer_3': 'Tim',
-        'answer_4': 'Helge Schneider',
+        'question': 'Was ist das größte Tier der Welt?',
+        'answer_1': 'Elefant',
+        'answer_2': 'Giraffe',
+        'answer_3': 'Blauwal',
+        'answer_4': 'Braunbär',
         'right_answer': 3,
     }, {
         'question': 'Einige Monate haben 30, einige 31 Tage. Wie viele haben 28 Tage?',
@@ -93,7 +93,7 @@ function answer(selection) { //variable selection
     console.log('selected answer is', selection);
     let selectedQuestionNumber = selection.slice(-1);// defines variable of last char of selection
     // selection is e.g. 'answer_1' see onklick in index.html = id
-    let question = questions[currentQuestion]; 
+    let question = questions[currentQuestion]; // must be defined here
     console.log('selectedQuestionNumber is', selectedQuestionNumber);
     console.log('right answer is', question['right_answer']);
 
@@ -115,7 +115,7 @@ function answer(selection) { //variable selection
     document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
 }
 function rightAnswerSelected(selectedQuestionNumber){
-    let question = questions[currentQuestion]; 
+    let question = questions[currentQuestion]; // must also be defined here!!
     return selectedQuestionNumber == question['right_answer'];  // if the selected question (number) is same a number in right answer of array
 }
 function nextQuestion() {

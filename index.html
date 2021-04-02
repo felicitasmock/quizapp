@@ -16,72 +16,76 @@
 <body>
 
     <div class="bg-container">
-
-        <div class="card quiz-card start-card start-end-screen" id="startCard">
-            <img src="img/play.jpg" class="start-img">
-            <div class="card-body">
-              <h5 class="card-title">Quizapp</h5>
-              <p class="card-text">Teste dein Wissen!</p>
-              <a href="#" onclick="startQuiz()" class="btn btn-primary">Los geht's!</a>
-            </div>
-          </div>
-
-        <div class="quiz-card card" id="quizCard" style="display: none;">
-            <img src="img/question-mark.jpg" class="card-img-top">
-            <div class="progress">
-                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0;">0
+        <div class="content-wrapper">
+        <!-- Start-Screen -->
+            <div class="card quiz-card start-card start-end-screen" id="startCard">
+                <img src="img/play.jpg" class="start-img">
+                <div class="card-body">
+                    <h5 class="card-title">Quizapp</h5>
+                    <p class="card-text">Teste dein Wissen!</p>
+                    <a href="#" onclick="startQuiz()" class="btn btn-primary">Los geht's!</a>
                 </div>
             </div>
-
-            <div class="card-body text-center">
-                <h5 class="card-title" id="questionText">Bist du bereit?</h5>
-
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
-                    <div class="card-body" id="answer_1">
-                        Antwort
-                    </div>
-                </div>
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
-                    <div class="card-body" id="answer_2">
-                        Antwort
-                    </div>
-                </div>
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
-                    <div class="card-body" id="answer_3">
-                        Antwort
-                    </div>
-                </div>
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
-                    <div class="card-body" id="answer_4">
-                        Antwort
+    <!-- Quiz-screen -->
+            <div class="quiz-card card" id="quizCard" style="display: none;">
+                <img src="img/question-mark.jpg" class="card-img-top">
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0;">0
                     </div>
                 </div>
 
+                <div class="card-body text-center">
+                    <h5 class="card-title" id="questionText">Bist du bereit?</h5>
 
-                <div class="question-footer">
-                    <span><b id="currentNumber">1</b>&nbsp;von&nbsp;<b id="maxQuestions">5</b>&nbsp;Fragen</span>
-                    <button class="btn btn-primary" disabled id="next-button" onclick="nextQuestion()">Nächste
-                        Frage</button>
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                        <div class="card-body" id="answer_1">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
+                        <div class="card-body" id="answer_2">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
+                        <div class="card-body" id="answer_3">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
+                        <div class="card-body" id="answer_4">
+                            Antwort
+                        </div>
+                    </div>
+
+                    <div class="question-footer">
+                        <span><b id="currentNumber">1</b>&nbsp;von&nbsp;<b id="maxQuestions">5</b>&nbsp;Fragen</span>
+                        <button class="btn btn-primary" disabled id="next-button" onclick="nextQuestion()">Nächste
+                            Frage</button>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-        <div class="quiz-card card end-card" id="endCard" style="display: none;">
-            <img class="end-card-img" src="img/trophy.png" class="card-img-top">
-            <div class="card-body start-end-screen">
-                <h5 class="card-title">Quiz beendet</h5>
-                <p>Du hast <b><span id="amountOfRightQuestions">X</span></b>&nbsp;Fragen von <b><span
-                            id="endMaxQuestions"></span></b>&nbsp;Fragen richtig beantwortet!</p>
-                <p id="resultText" class="card-text"></p>
-                <a href="#" class="btn btn-primary" onClick="playAgain()">Noch mal spielen</a>
+       
+            <!-- End-screen -->
+            <div class="quiz-card card end-card" id="endCard" style="display: none;">
+                <img class="end-card-img" src="img/trophy.png" class="card-img-top">
+                <div class="card-body start-end-screen">
+                    <h5 class="card-title">Quiz beendet</h5>
+                    <p>Du hast <b><span id="amountOfRightQuestions">X</span></b>&nbsp;Fragen von <b><span
+                                id="endMaxQuestions"></span></b>&nbsp;Fragen richtig beantwortet!</p>
+                    <p id="resultText" class="card-text"></p>
+                    <a href="#" class="btn btn-primary" onClick="playAgain()">Noch mal spielen</a>
+                </div>
             </div>
         </div>
         <div class="footer">
             <span>&#169; Copyright 2021 - felicious</span>
-            <span class="attribution">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
+            <span>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
         </div>
     </div>
-
+  
 </body>
 
 </html>

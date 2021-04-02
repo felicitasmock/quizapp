@@ -98,9 +98,9 @@
         width: unset;
         max-height: unset;
     }
-    /* .end-card {
+    .end-card {
         padding-top: 100px;
-    } */
+    } 
 
     .card-img-top{
         height: 150px;

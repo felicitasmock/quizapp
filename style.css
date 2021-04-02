@@ -16,23 +16,29 @@
 }
 
 .start-img {
-    height: 3
-    00px;
+    height: 300px;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .quiz-card {
     width: 30rem;
-    max-height: 100%;
+    max-height:95%;
 }
-
+.card {
+    /* border: unset; */
+}
+.card-body{
+    padding: 0.8rem;
+    max-height: 50%;
+}
 .center-text {
     text-align: center;
 }
 
 .progress {
     min-height: 20px;
+    border-radius: unset;
 }
 
 .quiz-answer-card:hover {
@@ -66,13 +72,16 @@
 }
 .footer {
     color: white;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .footer a {
     color: #1569D9;
+   
 }
 
 .attribution{
@@ -80,17 +89,24 @@
 }
 
 @media(max-width: 650px) {
+    .card {
+        max-width: 100%;
+        border-radius: 0;
+    }
     .quiz-card {
-        height: 100vh;
+        height: 100vh; 
+        width: unset;
+        max-height: unset;
     }
     /* .end-card {
         padding-top: 100px;
     } */
-    .start-card {
-        padding-top: 180px;
-    }
+
     .card-img-top{
         height: 150px;
         object-fit: cover;
+    }
+    .footer{
+        margin-bottom: 200px;
     }
 }

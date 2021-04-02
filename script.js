@@ -127,8 +127,14 @@ function answer(selection) { //variable selection
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
 
     }
-    //    document.getElementById('next-button').disabled = false; // enables button to click after answer has benn chosen
-    //console.log('currentQuestion is', currentQuestion);
+    
+
+    //disable button once an answer has been selected
+    document.getElementById('answer_1').parentNode.classList.add('disabled');
+    document.getElementById('answer_2').parentNode.classList.add('disabled');
+    document.getElementById('answer_3').parentNode.classList.add('disabled');
+    document.getElementById('answer_4').parentNode.classList.add('disabled');
+
     changeButton();
 }
 function rightAnswerSelected(selectedQuestionNumber) {
@@ -154,14 +160,16 @@ function changeButton() {
 }
 // function to remove set CSS classes
 function resetAnswers() {
-    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
-    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
-    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
-    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger', 'disabled');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success', 'disabled');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger', 'disabled');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success', 'disabled');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger', 'disabled');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success', 'disabled');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger', 'disabled');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success', 'disabled');
+
+   
 }
 
 // start quiz again

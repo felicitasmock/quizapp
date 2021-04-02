@@ -59,6 +59,11 @@
     text-align: center;
 }
 
+.disabled {
+    pointer-events: none;
+    background-color: #85878b61;
+}
+
 @media(max-width: 650px) {
     .quiz-card {
         height: 100vh;

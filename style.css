@@ -30,7 +30,7 @@
 
 .quiz-card {
     width: 30rem;
-    max-height: 95%;
+    max-height: 100vh;
 }
 
 .card {
@@ -39,7 +39,7 @@
 }
 
 .card-body {
-    padding: 0.7rem;
+    padding: 0.6rem;
     max-height: 50%;
 }
 

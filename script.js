@@ -77,7 +77,7 @@ let questions = [
         'answer_4': 'Bolivien',
         'right_answer': 1,
     }, {
-        'question': 'Lima ist die Hauptstadt welchen Landes?',
+        'question': 'Welcher Schauspieler verkörperte im Jahr 1965 James Bond?',
         'answer_1': 'Pierce Brosnan',
         'answer_2': 'Sean Connery',
         'answer_3': 'Timothy Dalton',

@@ -27,6 +27,62 @@ let questions = [
         'answer_3': 'Karibische Inseln',
         'answer_4': 'Kanarische Inseln',
         'right_answer': 4,
+    }, {
+        'question': 'Wie viele Einkerbungen hat ein Golfball?',
+        'answer_1': '336',
+        'answer_2': '512',
+        'answer_3': '467',
+        'answer_4': '318',
+        'right_answer': 1,
+    }, {
+        'question': 'Welcher ist der längste Fluss der Welt?',
+        'answer_1': 'Mekong',
+        'answer_2': 'Nil',
+        'answer_3': 'Amazonas',
+        'answer_4': 'Donau',
+        'right_answer': 3,
+    }, {
+        'question': 'Welches ist die größte Stadt der Welt?',
+        'answer_1': 'Mexiko-Stadt',
+        'answer_2': 'Shanghai',
+        'answer_3': 'New York',
+        'answer_4': 'Mumbai',
+        'right_answer': 1,
+    }, {
+        'question': '"Möge die Macht mit dir sein." stammt aus ...?',
+        'answer_1': 'Raumschiff Enterprise',
+        'answer_2': 'Star Wars',
+        'answer_3': 'Traumschiff Surprise',
+        'answer_4': 'Independence Day',
+        'right_answer': 2,
+    }, {
+        'question': 'Welche Farbe hat ein Regenbogen ganz außen (oben)?',
+        'answer_1': 'grün',
+        'answer_2': 'blau',
+        'answer_3': 'gelb',
+        'answer_4': 'rot',
+        'right_answer': 4,
+    }, {
+        'question': 'Welches Land gehört nicht zu Afrika?',
+        'answer_1': 'Niger',
+        'answer_2': 'Algerien',
+        'answer_3': 'Paraguay',
+        'answer_4': 'Kamerun',
+        'right_answer': 3,
+    }, {
+        'question': 'Lima ist die Hauptstadt welchen Landes?',
+        'answer_1': 'Peru',
+        'answer_2': 'Venezuela',
+        'answer_3': 'Guyana',
+        'answer_4': 'Bolivien',
+        'right_answer': 1,
+    }, {
+        'question': 'Lima ist die Hauptstadt welchen Landes?',
+        'answer_1': 'Pierce Brosnan',
+        'answer_2': 'Sean Connery',
+        'answer_3': 'Timothy Dalton',
+        'answer_4': 'Roger Moore',
+        'right_answer': 2,
     }
 ];
 
@@ -72,7 +128,7 @@ function endScreen() {
     if (rightQuestions == questions.length) {
         document.getElementById('resultText').innerHTML = 'Weltklasse! Du scheinst Allwissend zu sein!';
     } else if (rightQuestions == 0) {
-        document.getElementById('resultText').innerHTML = 'Das war ja wohl gar nichts! Probiere es noch ein mal'; 
+        document.getElementById('resultText').innerHTML = 'Das war ja wohl gar nichts! Probiere es noch ein mal';
     } else {
         document.getElementById('resultText').innerHTML = 'Das war schon ganz gut. Das kannst du aber noch besser.';
         console.log('richtige Antworten', rightQuestions);
@@ -127,7 +183,7 @@ function answer(selection) { //variable selection
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
 
     }
-    
+
 
     //disable button once an answer has been selected
     document.getElementById('answer_1').parentNode.classList.add('disabled');
@@ -169,7 +225,7 @@ function resetAnswers() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-danger', 'disabled');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success', 'disabled');
 
-   
+
 }
 
 // start quiz again

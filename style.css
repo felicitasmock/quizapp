@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .question-footer {
@@ -62,6 +63,20 @@
 .disabled {
     pointer-events: none;
     background-color: #85878b61;
+}
+.footer {
+    color: white;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer a {
+    color: #1569D9;
+}
+
+.attribution{
+    font-size: 12px;
 }
 
 @media(max-width: 650px) {
